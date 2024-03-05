@@ -1,16 +1,11 @@
 import { View, Text, StyleSheet } from "react-native";
-
+import Title from "../components/Title";
 function GameScreen() {
   return (
     <View style={styles.screen}>
-      <Text>GameScreen</Text>
-
-      <View>
-
-      </View>
-      <View>
-       
-      </View>
+      <Title>Opponent's Guess</Title>
+      <View></View>
+      <View></View>
     </View>
   );
 }
