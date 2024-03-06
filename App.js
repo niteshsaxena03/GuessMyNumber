@@ -15,7 +15,7 @@ export default function App() {
   let screen=<StartGameScreen onPickNumber={pickedNumberHandler}/>//this onPickNumber is a custom prop that is passed in order to gather the info from other components
 
   if(userNumber){
-    screen=<GameScreen/>
+    screen=<GameScreen userNumber={userNumber}/>
   }
   return (
     <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}>
