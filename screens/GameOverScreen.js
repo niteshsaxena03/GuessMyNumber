@@ -12,7 +12,12 @@ function GameOverScreen() {
           source={require("../assets/images/success.png")}
         />
       </View>
-      <Text>Your phone needed X rounds to guess the number Y</Text>
+      <Text style={styles.summaryText}>
+        Your phone needed
+        <Text style={styles.highlightText}> X </Text>
+        rounds to guess the number
+        <Text style={styles.highlightText}> Y </Text>
+      </Text>
     </View>
   );
 }
@@ -38,5 +43,14 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     height: "100%",
+  },
+  summaryText: {
+    fontFamily: "open-sans",
+    fontSize: 24,
+    textAlign:'center',
+  },
+  highlightText: {
+    fontFamily: "open-sans-bold",
+    color: Colors.primary500,
   },
 });
