@@ -10,6 +10,7 @@ import AppLoading from "expo-app-loading";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds,setGuessRounds]=useState(0);
 
   const [fontsLoaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
@@ -26,6 +27,10 @@ export default function App() {
   function gameOverHandler() {
     setGameIsOver(true);
   }
+  function startNewGameHandler(){
+    setUserNumber(null);
+    setGuessRounds(0);
+  }
 
   //using a new variable to point to screen
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />; //this onPickNumber is a custom prop that is passed in order to gather the info from other components
@@ -36,7 +41,7 @@ export default function App() {
     ); //this is a substitute of routing to a different screen
   }
   if (userNumber && gameIsOver) {
-    screen = <GameOverScreen />;
+    screen = <GameOverScreen userNumber={userNumber} roundsNumber={guessRounds} onStartNewGame={startNewGameHandler}/>;
   }
 
   return (

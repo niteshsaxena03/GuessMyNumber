@@ -28,7 +28,12 @@ function GameScreen({ userNumber, onGameOver }) {
     if (currentGuess === userNumber) {
       onGameOver();
     }
-  }, [currentGuess, userNumber, onGameOver]);
+  }, [currentGuess, userNumber, onGameOver]);//this will only be executed if any one of values in array changes
+
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []); //this will only be executed if a new game is started by user
 
   function nextGuessHandler(direction) {
     // direction => 'lower' or 'greater'
