@@ -6,25 +6,29 @@ import GameOverScreen from "./screens/GameOverScreen";
 import { LinearGradient } from "expo-linear-gradient";
 import Colors from "./constants/colors";
 import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(true);
 
-  useFonts({
-    'open-sans':require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold':require('./assets/fonts/OpenSans-Bold.ttf'),
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
 
+  if (!fontsLoaded) {
+    return <AppLoading/>;
+  }
   function pickedNumberHandler(pickedNumber) {
     setUserNumber(pickedNumber);
-    setGameIsOver(false);//we need to set this to false so as to avoid game over screen in the beginning
+    setGameIsOver(false); //we need to set this to false so as to avoid game over screen in the beginning
   }
-   function gameOverHandler() {
-     setGameIsOver(true);
-   }
+  function gameOverHandler() {
+    setGameIsOver(true);
+  }
 
   //using a new variable to point to screen
-  let screen = <StartGameScreen onPickNumber={pickedNumberHandler}  />; //this onPickNumber is a custom prop that is passed in order to gather the info from other components
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />; //this onPickNumber is a custom prop that is passed in order to gather the info from other components
 
   if (userNumber) {
     screen = (
@@ -34,7 +38,7 @@ export default function App() {
   if (userNumber && gameIsOver) {
     screen = <GameOverScreen />;
   }
- 
+
   return (
     <LinearGradient
       colors={[Colors.primary700, Colors.accent500]}
