@@ -28,7 +28,7 @@ function GameScreen({ userNumber, onGameOver }) {
 
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, userNumber, onGameOver]); //this will only be executed if any one of values in array changes
 
@@ -86,7 +86,7 @@ function GameScreen({ userNumber, onGameOver }) {
           </View>
         </View>
       </Card>
-      <View>
+      <View style={styles.listContainer}>
         {/*guessRounds.map((guessRounds) => (
           <Text key={guessRounds}>{guessRounds}</Text>
         ))*/}
@@ -122,4 +122,8 @@ const styles = StyleSheet.create({
   instructionText: {
     marginBottom: 12,
   },
+  listContainer:{
+    flex:1,
+    padding:16,
+  }
 });
