@@ -3,7 +3,7 @@
     "name": "GuessMyNumber",
     "slug": "GuessMyNumber",
     "version": "1.0.0",
-    "orientation": "default",
+    "orientation":"default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
