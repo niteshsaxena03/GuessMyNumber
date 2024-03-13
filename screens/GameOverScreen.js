@@ -7,7 +7,7 @@ import {
   useWindowDimensions,
   ScrollView,
 } from "react-native";
-import Title from "../components/UI/Title";
+import Title from "../components/UI/Title.ios";
 import Colors from "../constants/colors";
 import PrimaryButton from "../components/UI/PrimaryButton";
 
@@ -25,7 +25,7 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
   const imageStyle = {
     width: imageSize,
     height: imageSize,
-    borderRadius:imageSize/2,
+    borderRadius: imageSize / 2,
   };
 
   return (
@@ -53,8 +53,8 @@ function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
 export default GameOverScreen;
 
 const styles = StyleSheet.create({
-  screen:{
-   flex:1,
+  screen: {
+    flex: 1,
   },
   rootContainer: {
     flex: 1,

@@ -17,7 +17,7 @@ import InstructionText from "../components/UI/InstructionText";
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
-  const {width,height}=useWindowDimensions();//extracting required property from this changing state
+  const { width, height } = useWindowDimensions(); //extracting required property from this changing state
 
   function numberInputHandler(enteredNumber) {
     setEnteredNumber(enteredNumber);
@@ -39,7 +39,7 @@ function StartGameScreen({ onPickNumber }) {
     }
     onPickNumber(chosenNumber);
   }
-  const marginTopDistance=height<380?30:100;
+  const marginTopDistance = height < 380 ? 30 : 100;
   return (
     <ScrollView style={styles.screen}>
       <KeyboardAvoidingView style={styles.screen} behavior="position">
@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
     //marginTop: deviceHeight<380?30:100,(not optimal)
     alignItems: "center",
   },
-  screen:{
-    flex:1,
+  screen: {
+    flex: 1,
   },
 
   numberInput: {
